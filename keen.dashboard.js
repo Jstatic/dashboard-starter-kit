@@ -6,12 +6,65 @@ var client = new Keen({
 Keen.ready(function(){
 
   // ----------------------------------------
+  // Total Space Views (30 days)
+  // ----------------------------------------
+    var count = new Keen.Query("count", {
+      eventCollection: "space_views",
+      timeframe: "this_30_days"
+    });
+    client.draw(count, document.getElementById("spaceviews-metric-30d"), {
+      chartType: "metric",
+      title: "Space Views (30d)",
+      colors: ["#49c5b1"]
+    });
+
+  // ----------------------------------------
+  // Total Space Views (24 hrs)
+  // ----------------------------------------
+    var count = new Keen.Query("count", {
+      eventCollection: "space_views",
+      timeframe: "this_24_hours"
+    });
+    client.draw(count, document.getElementById("spaceviews-metric-24h"), {
+      chartType: "metric",
+      title: "Space Views (24h)",
+      colors: ["#49c5b1"]
+    });
+
+  // ----------------------------------------
+  // Portolio Adds (30 days)
+  // ----------------------------------------
+    var count = new Keen.Query("count", {
+      eventCollection: "adding_space_to_portfolio",
+      timeframe: "this_30_days"
+    });
+    client.draw(count, document.getElementById("portfolioadds-metric-30d"), {
+      chartType: "metric",
+      title: "Total Spaces Added to Portfolios (30d)",
+      colors: ["#49c5b1"]
+    });
+
+  // ----------------------------------------
+  // Portfolio Adds (24 hrs)
+  // ----------------------------------------
+    var count = new Keen.Query("count", {
+      eventCollection: "adding_space_to_portfolio",
+      timeframe: "this_24_hours"
+    });
+    client.draw(count, document.getElementById("portfolioadds-metric-24h"), {
+      chartType: "metric",
+      title: "Total Spaces Added to Portfolios (24h)",
+      colors: ["#49c5b1"]
+    });
+
+
+  // ----------------------------------------
   // Pageviews Area Chart (30 days)
   // ----------------------------------------
   var spaceviews_timeline_30d = new Keen.Query("count", {
     eventCollection: "space_views",
     interval: "daily",
-    timeframe: "previous_30_day"
+    timeframe: "this_30_day"
   });
   client.draw(spaceviews_timeline_30d, document.getElementById("spaceviews-30d"), {
     chartType: "areachart",
@@ -35,7 +88,7 @@ Keen.ready(function(){
   var port_add_timeline_30d = new Keen.Query("count", {
     eventCollection: "adding_space_to_portfolio",
     interval: "daily",
-    timeframe: "previous_30_days"
+    timeframe: "this_30_days"
   });
   client.draw(port_add_timeline_30d, document.getElementById("portfolioadds-30d"), {
     chartType: "areachart",
@@ -60,7 +113,7 @@ Keen.ready(function(){
   var spaceviews_timeline_24h = new Keen.Query("count", {
     eventCollection: "space_views",
     interval: "hourly",
-    timeframe: "previous_24_hours"
+    timeframe: "this_24_hours"
   });
   client.draw(spaceviews_timeline_24h, document.getElementById("spaceviews-24h"), {
     chartType: "areachart",
@@ -84,7 +137,7 @@ Keen.ready(function(){
   var port_add_timeline_24h = new Keen.Query("count", {
     eventCollection: "adding_space_to_portfolio",
     interval: "hourly",
-    timeframe: "previous_24_hours"
+    timeframe: "this_24_hours"
   });
   client.draw(port_add_timeline_24h, document.getElementById("portfolioadds-24h"), {
     chartType: "areachart",
@@ -109,7 +162,7 @@ Keen.ready(function(){
   var spaceviews_pie_24h = new Keen.Query("count", {
     eventCollection: "space_views",
     groupBy: "space_id",
-    timeframe: "previous_24_hours"
+    timeframe: "this_24_hours"
   });
   client.draw(spaceviews_pie_24h, document.getElementById("spaceviews-by-space-24h"), {
     chartType: "piechart",
@@ -132,7 +185,7 @@ Keen.ready(function(){
   var spaceviews_pie_24h = new Keen.Query("count", {
     eventCollection: "space_views",
     groupBy: "user_id",
-    timeframe: "previous_24_hours"
+    timeframe: "this_24_hours"
   });
   client.draw(spaceviews_pie_24h, document.getElementById("spaceviews-by-user-24h"), {
     chartType: "piechart",
@@ -157,7 +210,7 @@ Keen.ready(function(){
   // ----------------------------------------
   var port_add_pie = new Keen.Query("count", {
     eventCollection: "adding_space_to_portfolio",
-    timeframe: "previous_24_hours",
+    timeframe: "this_24_hours",
     groupBy: "space_id"
   });
   client.draw(port_add_pie, document.getElementById("portfolioadds-by-space-24hs"), {
@@ -180,7 +233,7 @@ Keen.ready(function(){
   // ----------------------------------------
   var port_add_pie = new Keen.Query("count", {
     eventCollection: "adding_space_to_portfolio",
-    timeframe: "previous_24_hours",
+    timeframe: "this_24_hours",
     groupBy: "user_id"
   });
   client.draw(port_add_pie, document.getElementById("portfolioadds-by-user-24hs"), {
