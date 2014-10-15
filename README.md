@@ -1,5 +1,10 @@
-Dashboard Starter Kit
+RealMassive Dashboard
 =====================
+
+A simple dashboard showing metrics we track from KeenIO.
+
+Source Information
+==================
 
 A simple starter kit for building dashboards with Keen IO.
 
