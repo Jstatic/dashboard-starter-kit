@@ -1,175 +1,180 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>RealMassive Activity Dashboard</title>
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="keen.dashboard.css">
+    <title>RealMassive Activity Dashboard</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="keen.dashboard.css">
 </head>
+
 <body>
 
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="./">RealMassive Activity Dashboard</a>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-left">
-          <li><a href="https://www.realmassive.com">Home</a></li>
-          <li><a href="https://www.realmassive.com/admin">Admin</a></li>
-          <li><a href="https://appengine.google.com">AppEngine</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="fluid-container">
-    <div class="row">
-
-        <div id="spaceviews-metric-30d" class="col-sm-3"></div>
-        <div id="spaceviews-metric-24h" class="col-sm-3"></div>
-
-        <div id="portfolioadds-metric-30d" class="col-sm-3"></div>
-        <div id="portfolioadds-metric-24h" class="col-sm-3"></div>
-
-    </div>
-
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Space Views per Day (30 days)
-          </div>
-          <div class="chart-stage">
-            <div id="spaceviews-30d"></div>
-          </div>
-          <div class="chart-notes">
-            Running total of Space Views over the past month
-          </div>
-      </div>
-    </div>
-
-      <div class="col-sm-6">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Portfolio Additions per Day (past 30 days)
-          </div>
-          <div class="chart-stage">
-            <div id="portfolioadds-30d"></div>
-          </div>
-          <div class="chart-notes">
-            Running total of Spaces added to Portfolios over the past month
-          </div>
-      </div>
-    </div>
-
-    </div>
-
-    <div class="row">
-
-      <div class="col-sm-6">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Space Views (24 hours)
-          </div>
-          <div class="chart-stage">
-            <div id="spaceviews-24h"></div>
-          </div>
-          <div class="chart-notes">
-            Running total of Space Views over the past 24 hours.
-          </div>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">RealMassive Activity Dashboard</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="https://www.realmassive.com">Home</a>
+                    </li>
+                    <li><a href="https://www.realmassive.com/admin">Admin</a>
+                    </li>
+                    <li><a href="https://appengine.google.com">AppEngine</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
+    </div>
 
-      <div class="col-sm-6">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Total Number of Spaces Added to Portfolio (past 24 hrs)
-          </div>
-          <div class="chart-stage">
-            <div id="portfolioadds-24h"></div>
-          </div>
-          <div class="chart-notes">
-            Total number of spaces added to portfolios in the previous 24 hrs.
-          </div>
+    <div class="fluid-container">
+        <div class="row">
+
+            <div id="spaceviews-metric-30d" class="col-sm-3"></div>
+            <div id="spaceviews-metric-24h" class="col-sm-3"></div>
+
+            <div id="portfolioadds-metric-30d" class="col-sm-3"></div>
+            <div id="portfolioadds-metric-24h" class="col-sm-3"></div>
+
         </div>
-      </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="chart-wrapper">
+                    <div class="chart-title">
+                        Space Views by Day
+                    </div>
+                    <div class="chart-stage">
+                        <div id="spaceviews-30d"></div>
+                    </div>
+                    <div class="chart-notes">
+                        Running total of Space Views over the past 30 days
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="chart-wrapper">
+                    <div class="chart-title">
+                        Portfolio Additions by Day
+                    </div>
+                    <div class="chart-stage">
+                        <div id="portfolioadds-30d"></div>
+                    </div>
+                    <div class="chart-notes">
+                        Running total of Spaces added to Portfolios over the past 30 days
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="chart-wrapper">
+                    <div class="chart-title">
+                        Space Views by Hour
+                    </div>
+                    <div class="chart-stage">
+                        <div id="spaceviews-24h"></div>
+                    </div>
+                    <div class="chart-notes">
+                        Running total of Space Views over the past 24 hours
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="chart-wrapper">
+                    <div class="chart-title">
+                        Portfolio Additions by Hour
+                    </div>
+                    <div class="chart-stage">
+                        <div id="portfolioadds-24h"></div>
+                    </div>
+                    <div class="chart-notes">
+                        Total number of spaces added to portfolios in the previous 24 hrs
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="row">
+
+            <div class="col-sm-4">
+                <div class="chart-wrapper">
+                    <div class="chart-title">
+                        Spaces Viewed in Last 24 Hours
+                    </div>
+                    <div class="chart-stage">
+                        <div id="spaceviews-by-space-24h"></div>
+                    </div>
+                    <div class="chart-notes">
+                        Which spaces were viewed in the past 24 hours
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="chart-wrapper">
+                    <div class="chart-title">
+                        Users Viewing Spaces in the past 24 hours
+                    </div>
+                    <div class="chart-stage">
+                        <div id="spaceviews-by-user-24h"></div>
+                    </div>
+                    <div class="chart-notes">
+                        Which users viewed spaces during the past 24 hours
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="chart-wrapper">
+                    <div class="chart-title">
+                        Spaces Added to Portfolios over the past 24 hours
+                    </div>
+                    <div class="chart-stage">
+                        <div id="portfolioadds-by-space-24hs"></div>
+                    </div>
+                    <div class="chart-notes">
+                        Spaces added to portfolios
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="chart-wrapper">
+                    <div class="chart-title">
+                        Users Adding Spaces to Portfolios over the past 24 hours
+                    </div>
+                    <div class="chart-stage">
+                        <div id="portfolioadds-by-user-24hs"></div>
+                    </div>
+                    <div class="chart-notes">
+                        Users adding spaces to portfolios
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     </div>
 
-    <div id="row">
-
-      <div class="col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Spaces being Viewed (24 hours)
-          </div>
-          <div class="chart-stage">
-            <div id="spaceviews-by-space-24h"></div>
-          </div>
-          <div class="chart-notes">
-            Number of Space Views Grouped by Space in the past 24 hrs. Legend
-            ordered by count.
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-2">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Space Views by User (24 hrs)
-          </div>
-          <div class="chart-stage">
-            <div id="spaceviews-by-user-24h"></div>
-          </div>
-          <div class="chart-notes">
-            Users adding spaces to portfolios
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Spaces Added to Portfolios (24 hrs)
-          </div>
-          <div class="chart-stage">
-            <div id="portfolioadds-by-space-24hs"></div>
-          </div>
-          <div class="chart-notes">
-            Spaces added to portfolios
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-2">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Portfolio Users (24 hrs)
-          </div>
-          <div class="chart-stage">
-            <div id="portfolioadds-by-user-24hs"></div>
-          </div>
-          <div class="chart-notes">
-            Users adding spaces to portfolios
-          </div>
-        </div>
-      </div>
-
-    </div>
-</div>
-
-  </div>
-
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="https://d26b395fwzu5fz.cloudfront.net/latest/keen.min.js"></script>
-  <script src="keen.dashboard.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://d26b395fwzu5fz.cloudfront.net/latest/keen.min.js"></script>
+    <script src="keen.dashboard.js"></script>
 
 </body>
+
 </html>
