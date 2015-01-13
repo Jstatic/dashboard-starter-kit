@@ -27,10 +27,11 @@ Keen.ready(function() {
     };
 
     var SPACE_VIEWS = "space_views";
-    var ADDING_SPACE_TO_PORT = "adding_space_to_portfolio";
+    var ADDING_SPACE_TO_PORT = "portfolio_added_space";
     var USER_ID = "user_id";
-    var SPACE_ID = "space_id";
+    var SPACE_ID = "portfolio_space_key_id";
     var THIS_30_DAYS = "this_30_days";
+    var THIS_7_DAYS = "this_7_days";
     var THIS_24_HRS = "this_24_hours";
     //
     // -- END CONSTANTS
@@ -80,11 +81,11 @@ Keen.ready(function() {
     // ----------------------------------------
     var count = new Keen.Query("count", {
         eventCollection: ADDING_SPACE_TO_PORT,
-        timeframe: THIS_24_HRS
+        timeframe: THIS_7_DAYS
     });
     client.draw(count, document.getElementById("portfolioadds-metric-24h"), {
         chartType: "metric",
-        title: "Spaces Added to Portfolios During Last 24 Hours",
+        title: "Spaces Added to Portfolios During Last 7 Days",
         colors: ["#49c5b1"]
     });
 
@@ -202,7 +203,7 @@ Keen.ready(function() {
         timeframe: THIS_24_HRS,
         groupBy: SPACE_ID
     });
-    client.draw(port_add_pie, document.getElementById("portfolioadds-by-space-24hs"), {
+    client.draw(port_add_pie, document.getElementById("portfolioadds-by-space-24h"), {
         chartType: "piechart",
         title: false,
         height: 250,
@@ -218,7 +219,7 @@ Keen.ready(function() {
         timeframe: THIS_24_HRS,
         groupBy: USER_ID
     });
-    client.draw(port_add_pie, document.getElementById("portfolioadds-by-user-24hs"), {
+    client.draw(port_add_pie, document.getElementById("portfolioadds-by-user-24h"), {
         chartType: "piechart",
         title: false,
         height: 250,
