@@ -121,7 +121,7 @@ Keen.ready(function() {
         height: 250,
         width: "auto",
         chartOptions: areaChartOptions,
-        isStacked: true
+        isStacked: false
     });
 
 
@@ -149,14 +149,6 @@ Keen.ready(function() {
         eventCollection: ADDING_SPACE_TO_PORT,
         interval: "hourly",
         timeframe: THIS_24_HRS
-    });
-    client.draw(port_add_timeline_24h, document.getElementById("portfolioadds-24h"), {
-        chartType: "areachart",
-        title: false,
-        height: 250,
-        width: "auto",
-        chartOptions: areaChartOptions,
-        isStacked: true
     });
 
 
@@ -194,7 +186,6 @@ Keen.ready(function() {
 
 
 
-
     // ----------------------------------------
     // Spaces added to portfolio by Space
     // ----------------------------------------
@@ -227,4 +218,51 @@ Keen.ready(function() {
         chartOptions: pieChartOptions
     });
 
+    var spaceViews = new Keen.Query("count", {
+        eventCollection: SPACE_VIEWS,
+        interval: "daily",
+        timeframe: "this_30_days"
+    });
+    var spaceAdded = new Keen.Query("count", {
+        eventCollection: ADDING_SPACE_TO_PORT,
+        interval: "daily",
+        timeframe: "this_30_days"
+    });
+
+    var newChart = new Keen.Dataviz()
+        .el(document.getElementById("new-chart"))
+        .chartType("areachart")
+        .height(250)
+        .chartOptions({
+            chartArea: {
+            height: "85%",
+            left: "5%",
+            top: "5%",
+            width: "80%"
+        }
+        })
+        .prepare();
+
+    client.run([spaceViews, spaceAdded], function(response){
+            var result1 = this.data[0].result;
+            var result2 = this.data[1].result;
+            var cData = [];
+            var i = 0;
+
+            while(i < result1.length) {
+                cData[i]= {
+                    timeframe: result1[i]["timeframe"],
+                    value: [
+                        {category: "Space Views", result: result1[i]["value"]},
+                        {category: "Added to Portfolio", result: result2[i]["value"]}
+                    ]
+                };
+                if (i == result1.length-1) {
+                    newChart
+                        .parseRawData({result: cData})
+                        .render();
+                }
+                i++;
+            }
+    });
 });
