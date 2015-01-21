@@ -17,4 +17,15 @@ npm install -g bower
 bower install
 ```
 
-View your new dashboard locally by simply opening index.html in a browser, or send it live with [Brace.io](http://brace.io/)!
+Install Connect and Serve Static node libraries -
+
+
+npm install connect
+npm install serve-static
+
+use the Keen dashboard with Google Analytics integration by running:
+node server.js
+
+launch:
+http://localhost:8080
+oAuth using your google analytics credentials

@@ -53,15 +53,29 @@ Keen.ready(function() {
     // ----------------------------------------
     // Total Space Views (24 hrs)
     // ----------------------------------------
-    var count = new Keen.Query("count", {
+
+
+    var newCount = new Keen.Query("count", {
         eventCollection: SPACE_VIEWS,
         timeframe: THIS_24_HRS
     });
-    client.draw(count, document.getElementById("spaceviews-metric-24h"), {
-        chartType: "metric",
-        title: "Spaces Viewed in Last 24 Hours",
-        colors: ["#49c5b1"]
+
+    var spaceViewsMetric24 = new Keen.Dataviz()
+    .el(document.getElementById("spaceviews-metric-24h"))
+    .title("Spaces Viewed in Last 24 Hours")
+    .chartType("metric")
+    .prepare();
+
+    var runRequest = client.run(newCount, function(){
+        spaceViewsMetric24
+        .parseRequest(this)
+        .render();
     });
+
+    setInterval(function(){
+        spaceViewsMetric24.prepare();
+        runRequest.refresh();
+    }, 60000 * 5);
 
     // ----------------------------------------
     // Portolio Adds (30 days)
