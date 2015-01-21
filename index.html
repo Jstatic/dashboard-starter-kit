@@ -58,62 +58,29 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <section id="auth-button"></section>
-                <section id="view-selector"></section>
+            <div class="col-sm-3">
+            <div class="chart-wrapper">
+                    <div class="chart-title">
+                        New Users (30 Days)
+                    </div>
                 <section id="timeline"></section>
-            </div>
-
-        </div>
-
-        <div class="row">
-
-            <div class="col-sm-6">
-                <div class="chart-wrapper">
-                    <div class="chart-title">
-                        Space Views by Hour
-                    </div>
-                    <div class="chart-stage">
-                        <div id="spaceviews-24h"></div>
-                    </div>
-                    <div class="chart-notes">
-                        Running total of Space Views over the past 24 hours
-                    </div>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-3">
                 <div class="chart-wrapper">
                     <div class="chart-title">
-                        Space Views by Day
+                        Session by Browser (30 Days)
                     </div>
-                    <div class="chart-stage">
-                        <div id="spaceviews-30d"></div>
-                    </div>
-                    <div class="chart-notes">
-                        Running total of Space Views over the past 30 days
-                    </div>
+                    <section id="gchart"></section>
                 </div>
             </div>
 
         </div>
 
         <div class="row">
+
 
             <div class="col-sm-4">
-                <div class="chart-wrapper">
-                    <div class="chart-title">
-                        Spaces Viewed in Last 24 Hours
-                    </div>
-                    <div class="chart-stage">
-                        <div id="spaceviews-by-space-24h"></div>
-                    </div>
-                    <div class="chart-notes">
-                        Which spaces were viewed in the past 24 hours
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-2">
                 <div class="chart-wrapper">
                     <div class="chart-title">
                         Users Viewing Spaces in the past 24 hours
@@ -141,7 +108,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-2">
+            <div class="col-sm-4">
                 <div class="chart-wrapper">
                     <div class="chart-title">
                         Users Adding Spaces to Portfolios over the past 24 hours
@@ -159,7 +126,10 @@
     </div>
 
     </div>
-
+    <footer>
+        <section id="auth-button"></section>
+        <section id="view-selector" style="display: none;"></section>
+    </footer>
     <!-- RestAngular (and it requires lodash) -->
     <!--<script type="text/javascript" src="http://cdn.jsdelivr.net/restangular/latest/restangular.min.js"></script>-->
     <!--<script type="text/javascript" src="//cdn.jsdelivr.net/lodash/2.1.0/lodash.compat.min.js"></script>-->

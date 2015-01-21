@@ -9,7 +9,7 @@ gapi.analytics.ready(function() {
 
   // Step 3: Authorize the user.
 
-  var CLIENT_ID = '403815708118-gvg4udd9jt9gnfqkj9ejgoinforbtdk9.apps.googleusercontent.com';
+  var CLIENT_ID = '1033615168284-0iikdbsk1u2hrhddi6ficj8q56cue8g9.apps.googleusercontent.com';
 
   gapi.analytics.auth.authorize({
     container: 'auth-button',
@@ -28,28 +28,46 @@ gapi.analytics.ready(function() {
     reportType: 'ga',
     query: {
       'dimensions': 'ga:date',
-      'metrics': 'ga:sessions',
+      'metrics': 'ga:newUsers',
       'start-date': '30daysAgo',
       'end-date': 'yesterday',
     },
     chart: {
       type: 'LINE',
-      container: 'timeline'
+      container: 'timeline',
+      options: {
+        width: '100%'
+      }
     }
   });
 
+  var newChart = new gapi.analytics.googleCharts.DataChart({
+    query: {
+      'dimensions': 'ga:browser',
+      'metrics': 'ga:sessions',
+      'sort': '-ga:sessions',
+      'max-results': '7',
+      'start-date': '30daysAgo',
+      'end-date': 'yesterday',
+    },
+    chart: {
+      type: 'PIE',
+      container: 'gchart',
+      options: {
+        width: '100%'
+      }
+    }
+  });
   // Step 6: Hook up the components to work together.
+  timeline.set({query: {ids: 'ga:78731694'}}).execute();
+  newChart.set({query: {ids: 'ga:78731694'}}).execute();
 
   gapi.analytics.auth.on('success', function(response) {
     viewSelector.execute();
   });
 
   viewSelector.on('change', function(ids) {
-    var newIds = {
-      query: {
-        ids: ids
-      }
-    }
-    timeline.set(newIds).execute();
+    timeline.set({query: {ids: 'ga:78731694'}}).execute();
+    newChart.set({query: {ids: 'ga:78731694'}}).execute();
   });
 });
