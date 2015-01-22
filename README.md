@@ -19,13 +19,17 @@ bower install
 
 Install Connect and Serve Static node libraries -
 
-
+```
 npm install connect
 npm install serve-static
+```
 
-use the Keen dashboard with Google Analytics integration by running:
+use the Keen dashboard with Google Analytics integration by running a small loca node server:
+
+```
 node server.js
+```
 
-launch:
-http://localhost:8080
+launch the dashboard at: http://localhost:8080
+
 oAuth using your google analytics credentials
