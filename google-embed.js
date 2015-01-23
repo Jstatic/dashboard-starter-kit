@@ -41,6 +41,25 @@ gapi.analytics.ready(function() {
     }
   });
 
+  var userGeo = new gapi.analytics.googleCharts.DataChart({
+    reportType: 'ga',
+    query: {
+      'dimensions': 'ga:region',
+      'max-results' : 10,
+      'metrics': ['ga:sessions'],
+      'sort': '-ga:sessions',
+      'start-date': '7daysAgo',
+      'end-date': 'yesterday',
+    },
+    chart: {
+      type: 'PIE',
+      container: 'user-geo',
+      options: {
+        width: '100%'
+      }
+    }
+  });
+
   var newChart = new gapi.analytics.googleCharts.DataChart({
     query: {
       'dimensions': 'ga:browser',
@@ -61,6 +80,7 @@ gapi.analytics.ready(function() {
   // Step 6: Hook up the components to work together.
   timeline.set({query: {ids: 'ga:78731694'}}).execute();
   newChart.set({query: {ids: 'ga:78731694'}}).execute();
+  userGeo.set({query: {ids: 'ga:78731694'}}).execute();
 
   gapi.analytics.auth.on('success', function(response) {
     viewSelector.execute();
@@ -69,5 +89,6 @@ gapi.analytics.ready(function() {
   viewSelector.on('change', function(ids) {
     timeline.set({query: {ids: 'ga:78731694'}}).execute();
     newChart.set({query: {ids: 'ga:78731694'}}).execute();
+    userGeo.set({query: {ids: 'ga:78731694'}}).execute();
   });
 });
