@@ -37,6 +37,28 @@ Keen.ready(function() {
     // -- END CONSTANTS
     //
 
+
+    // ----------------------------------------
+    // Marketing Manager Engagement
+    // ----------------------------------------
+
+    var marketingChannelsMetric = new Keen.Query("count", {
+        eventCollection: "marketingchannel_created",
+        timeframe: "last_7_days"
+    });
+        client.draw(marketingChannelsMetric, document.getElementById("marketing-channels-metric"), {
+        // Custom configuration here
+    });
+
+      var marketingChannels = new Keen.Query("count", {
+        eventCollection: "marketingchannel_created",
+        timeframe: "last_7_days",
+        groupBy: "user_id"
+      });
+      client.draw(marketingChannels, document.getElementById("marketing-channels-created"), {
+        // Custom configuration here
+      });
+
     // ----------------------------------------
     // Total Space Views (30 days)
     // ----------------------------------------
